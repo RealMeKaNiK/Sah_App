@@ -4,7 +4,7 @@ using namespace std;
 
 int main()
 {
-	cout << "bok";
+	cout << "marin je gay haha";
 	sf::RenderWindow window(sf::VideoMode(1200, 800), "Hello, SFML world!");
 	window.setFramerateLimit(60);
 
