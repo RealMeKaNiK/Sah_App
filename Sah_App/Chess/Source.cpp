@@ -1,13 +1,21 @@
 #include <iostream>
+#include <SFML/Graphics.hpp>
 using namespace std;
 
 int main()
 {
-	int haha;
-	cout << "Unesi: ";
-	cin >> haha;
+	sf::RenderWindow window(sf::VideoMode(1200, 800), "Hello, SFML world!");
+	window.setFramerateLimit(60);
 
-	cout << haha;
-
+	while (window.isOpen())
+	{
+		sf::Event event;
+		while (window.pollEvent(event))
+		{
+			if (event.type == sf::Event::Closed)
+				window.close();
+		}
+		window.display();
+	}
 	return 0;
 }
