@@ -5,6 +5,7 @@ using namespace std;
 int main()
 {
 	cout << "marin je gay haha";
+	cout << "marin je gejkoooooooooooooooooooooooooo mejkoooooooooooooo";
 	cout << "Marin je jhoisve";
 	sf::RenderWindow window(sf::VideoMode(1200, 800), "Hello, SFML world!");
 	window.setFramerateLimit(60);
