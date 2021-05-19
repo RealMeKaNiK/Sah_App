@@ -4,6 +4,8 @@ using namespace std;
 
 int main()
 {
+	cout << "test alan feature meature peature hahahahah";
+	cout << "testing testing";
 	sf::RenderWindow window(sf::VideoMode(1200, 800), "Hello, SFML world!");
 	window.setFramerateLimit(60);
 
