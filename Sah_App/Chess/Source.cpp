@@ -6,6 +6,7 @@ int main()
 {
 	std::cout << "radim konflikt";
 	std::cout << "alaneeeeeeeeee";
+	cout << "marineeee";
 	sf::RenderWindow window(sf::VideoMode(1200, 800), "Hello, SFML world!");
 	window.setFramerateLimit(60);
 
