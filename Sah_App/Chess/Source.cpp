@@ -8,6 +8,7 @@ int main()
 	cout << "marin je gejkoooooooooooooooooooooooooo mejkoooooooooooooo";
 	cout << "Marin je jhoisve";
 	cout << "Bok marineeeeee kako sii";
+	cout << "alaneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee";
 	sf::RenderWindow window(sf::VideoMode(1200, 800), "Hello, SFML world!");
 	window.setFramerateLimit(60);
 
