@@ -4,9 +4,6 @@ using namespace std;
 
 int main()
 {
-	std::cout << "radim konflikt";
-	std::cout << "alaneeeeeeeeee";
-	std::cout << "alan je gejko";
 	sf::RenderWindow window(sf::VideoMode(1200, 800), "Hello, SFML world!");
 	window.setFramerateLimit(60);
 
