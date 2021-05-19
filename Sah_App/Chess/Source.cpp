@@ -5,6 +5,7 @@ using namespace std;
 int main()
 {
 	std::cout << "Marin feature push test";
+	std::cout << "Marin drugi feature pus test";
 	sf::RenderWindow window(sf::VideoMode(1200, 800), "Hello, SFML world!");
 	window.setFramerateLimit(60);
 
