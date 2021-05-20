@@ -1,64 +1,70 @@
 #include "Board.h"
+Board::Board()
+{
+	//default constructor
+}
 Board::Board(RenderWindow* window)
 {
 	this->window = window;
-	drawMainBoard();
-	drawOddRows();
-	drawEvenRows();
+	initBoard(8, 8);
 }
 
-void Board::drawOddRows()
+void Board::initBoard(int boardRow, int boardCollumn)
 {
-	RectangleShape oddRows[16];
-	int positionX = 400;
-	int positionY = 100;
-	for (int i = 0; i < 16; i++)
+	int squareX = 0;
+	int squareY = 0;
+	for (int i = 0; i < boardCollumn; i++)
 	{
-		oddRows[i].setSize(Vector2f(100.f, 100.f));
-		oddRows[i].setFillColor(Color(139, 87, 26));
-		oddRows[i].setPosition(positionX, positionY);
-		window->draw(oddRows[i]);
-		if (positionX == 1000)
+		for (int j = 0; j < boardRow; j++)
 		{
-			positionX = 400;
-			positionY += 200;
-			continue;
+			if (i % 2 == 0)
+			{
+				if (j % 2 == 0)
+				{
+					boardSquares[i][j].setSize(Vector2f(100.f, 100.f));
+					boardSquares[i][j].setFillColor(Color(229, 150, 60));
+					boardSquares[i][j].setPosition(squareX, squareY);
+					squareX += 100;
+				}
+				else
+				{
+					boardSquares[i][j].setSize(Vector2f(100.f, 100.f));
+					boardSquares[i][j].setFillColor(Color(139, 87, 26));
+					boardSquares[i][j].setPosition(squareX, squareY);
+					squareX += 100;
+				}
+			}
+			else
+			{
+				if (j % 2 == 0)
+				{
+					boardSquares[i][j].setSize(Vector2f(100.f, 100.f));
+					boardSquares[i][j].setFillColor(Color(139, 87, 26));
+					boardSquares[i][j].setPosition(squareX, squareY);
+					squareX += 100;
+				}
+				else
+				{
+					boardSquares[i][j].setSize(Vector2f(100.f, 100.f));
+					boardSquares[i][j].setFillColor(Color(229, 150, 60));
+					boardSquares[i][j].setPosition(squareX, squareY);
+					squareX += 100;
+				}
+			}
 		}
-		else
+		squareY += 100;
+		squareX = 0;
+	}
+}
+
+void Board::drawBoard(int boardRow, int boardCollumn)
+{
+	for (int i = 0; i < boardCollumn; i++)
+	{
+		for (int j = 0; j < boardRow; j++)
 		{
-			positionX += 200;
+			window->draw(boardSquares[i][j]);
 		}
 	}
 }
 
-void Board::drawEvenRows()
-{
-	RectangleShape evenRows[16];
-	int positionX1 = 300;
-	int positionY1 = 200;
-	for (int i = 0; i < 16; i++)
-	{
-		evenRows[i].setSize(Vector2f(100.f, 100.f));
-		evenRows[i].setFillColor(Color(139, 87, 26));
-		evenRows[i].setPosition(positionX1, positionY1);
-		window->draw(evenRows[i]);
-		if (positionX1 == 900)
-		{
-			positionX1 = 300;
-			positionY1 += 200;
-			continue;
-		}
-		else
-		{
-			positionX1 += 200;
-		}
-	}
-}
-
-void Board::drawMainBoard()
-{
-	RectangleShape mainBoard(Vector2f(800.f, 800.f));
-	mainBoard.setFillColor(Color(229, 150, 60));
-	mainBoard.setPosition(300, 100);				//End of board on 1000 x
-	window->draw(mainBoard);
-}

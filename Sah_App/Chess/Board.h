@@ -6,10 +6,11 @@ class Board
 {
 private:
 	RenderWindow* window;
+	RectangleShape boardSquares[8][8];
 public:
+	Board();
 	Board(RenderWindow* window);
-	void drawOddRows();
-	void drawEvenRows();
-	void drawMainBoard();
+	void initBoard(int boardRow, int boardCollumn);
+	void drawBoard(int boardRow, int boardCollumn);
 };
 
