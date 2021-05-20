@@ -4,17 +4,17 @@
 using namespace std;
 using namespace sf;
 
+//Global Variables
+static int ROWSIZE = 8;
+static int COLLUMNSIZE = 8;
 
 int main()
 { 
-	sf::RenderWindow window(sf::VideoMode(800, 800), "Hello, SFML world!");
+	sf::RenderWindow window(sf::VideoMode(800, 800), "Chess by Marin and Alan");
 	window.setFramerateLimit(60);
 	Board board(&window);
 	while (window.isOpen())
 	{
-		int x = 0;
-		int y = 0;
-		bool mousePressed = false;
 		sf::Event event;
 		while (window.pollEvent(event))
 		{
@@ -24,15 +24,10 @@ int main()
 		
 		if (Mouse::isButtonPressed(Mouse::Left))
 		{
-			//cout << Mouse::getPosition(window).x << endl;
-			//mousePressed = true;
-			x = Mouse::getPosition(window).x;
-			y = Mouse::getPosition(window).y;
-			//drawMarker(&window, x, y);
+			cout << Mouse::getPosition(window).x << endl;
 		}
-		board.drawBoard(8,8);
-		
 
+		board.drawBoard(ROWSIZE, COLLUMNSIZE);
 		window.display();
 	}
 	return 0;
