@@ -7,6 +7,10 @@ struct Kralj
 {
 	Texture textureKralj;
 	Sprite spriteKralj;
+	//Kralj(string imgPath)
+	//{
+	//	textureKralj.loadFromFile(imgPath);
+	//}
 };
 
 struct Kraljica
@@ -61,5 +65,7 @@ public:
 	void setTextures(string imgDirectoryPijun, string imgDirectoryKralj, string imgDirectoryKraljica, string imgDirectoryLovac, string imgDirectoryKonj,
 					 string imgDirectoryKula);
 	void setStartPosition();
+	Vector2f figureOriginPoint(float x, float y);
+	void setFigureOriginPoint();
 };
 

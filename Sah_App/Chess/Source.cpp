@@ -29,9 +29,11 @@ int main()
 		{
 			//cout << Mouse::getPosition(window).x << endl;
 		}
-
+		
 		board.drawBoard(ROWSIZE, COLLUMNSIZE);
+		
 		figure.setStartPosition();
+		
 		window.display();
 	}
 	return 0;
