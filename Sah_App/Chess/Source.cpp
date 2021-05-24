@@ -16,6 +16,7 @@ int main()
 
 	Board board(&window);
 	Figure figure(&window);
+	bool gameIsRunning = true;
 	while (window.isOpen())
 	{
 		sf::Event event;
@@ -32,9 +33,11 @@ int main()
 		
 		board.drawBoard(ROWSIZE, COLLUMNSIZE);
 		
-		figure.setStartPosition();
+		figure.setPosition(gameIsRunning);
+		figure.drawFigures();
 		
 		window.display();
+		gameIsRunning = false;
 	}
 	return 0;
 }
