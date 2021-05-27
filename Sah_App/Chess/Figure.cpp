@@ -2,12 +2,10 @@
 
 Figure::Figure(RenderWindow* window)
 {
-
+	kraljBijeli.initImg("White");
 	this->window = window;
 	setFigureOriginPoint();
 }
-
-
 
 void Figure::setPosition(bool gameStart)
 {
@@ -57,18 +55,30 @@ void Figure::setFigureOriginPoint()
 void Figure::drawFigures()
 {
 	window->draw(kraljBijeli.spriteKralj);
-	window->draw(kraljicaBijeli.spriteKraljica);
+	/*window->draw(kraljicaBijeli.spriteKraljica);
 	window->draw(lovacLijevoBijeli.spriteLovac);
 	window->draw(lovacDesnoBijeli.spriteLovac);
 	window->draw(konjLijevoBijeli.spriteKonj);
 	window->draw(konjDesnoBijeli.spriteKonj);
 	window->draw(kulaLijevoBijeli.spriteKula);
-	window->draw(kulaDesnoBijeli.spriteKula);
-	for (unsigned i = 0; i < 8; i++)
+	window->draw(kulaDesnoBijeli.spriteKula);*/
+	/*for (unsigned i = 0; i < 8; i++)
 	{
 		window->draw(pijuniBijeli[i].spritePijun);
-	}
+	}*/
 
 }
 
-
+void Kralj::initImg(string color)
+{
+	if (color == "White")
+	{
+		textureKralj.loadFromFile("kraljbijeli.png");
+		spriteKralj.setTexture(textureKralj);
+	}
+	else if (color == "Black")
+	{
+		textureKralj.loadFromFile("kralj.png");
+		spriteKralj.setTexture(textureKralj);
+	}
+}
