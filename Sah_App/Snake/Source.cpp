@@ -3,7 +3,6 @@
 using namespace std;
 using namespace sf;
 
-
 int main()
 {
 	sf::RenderWindow window(sf::VideoMode(800, 800), "Snake");
