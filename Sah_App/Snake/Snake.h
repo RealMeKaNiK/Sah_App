@@ -6,15 +6,17 @@ class Snake
 {
 private:
 	RenderWindow* window;
-	int x;
-	int y;
+	int x = 100;
+	int y = 100;
 	RectangleShape snakeObject;
 	char snakeDirection;
+	bool outOfRange = false;
 
 public:
 	Snake(RenderWindow* window);
-	void moveSnake();
+	void moveSnake(char d);
 	void continueMoving();
 	void drawSnake();
+	void checkOutOfBorders();
 };
 

@@ -3,41 +3,63 @@
 Snake::Snake(RenderWindow* window)
 {
 	this->window = window;
-	x = 100;
-	y = 100;
 	snakeObject.setSize(Vector2f(50.f, 50.f));
 	snakeObject.setFillColor(Color::Green);
 	//Start Position
-	snakeObject.setPosition(x, y);
 	snakeDirection = 'E';
 }
 
-void Snake::moveSnake()
+void Snake::moveSnake(char d)
 {
+	if (d == 'W')
+	{
+		snakeDirection = 'N';
+		y -= 10;
+	}
+	else if (d == 'S')
+	{
+		snakeDirection = 'S';
+		y += 10;
+	}
+	else if (d == 'A')
+	{
+		snakeDirection = 'W';
+		x -= 10;
+	}
+	else if (d == 'D')
+	{
+		snakeDirection = 'E';
+		x += 10;
+	}
 }
 
 void Snake::continueMoving()
 {
 	if (snakeDirection == 'E')
-	{
-		snakeObject.setPosition(x + 10, y);
-	}
+		x += 10;
 	else if (snakeDirection == 'W')
-	{
-		snakeObject.setPosition(x - 10, y);
-	}
+		x -= 10;
 	else if (snakeDirection == 'N')
-	{
-		snakeObject.setPosition(x, y - 10);
-	}
+		y -= 10;
 	else if (snakeDirection == 'S')
-	{
-		snakeObject.setPosition(x, y + 10);
-	}
+		y += 10;
 }
 
 void Snake::drawSnake()
 {
-	continueMoving();
+	snakeObject.setPosition(x, y);
 	window->draw(snakeObject);
+	checkOutOfBorders();
+}
+
+void Snake::checkOutOfBorders()
+{
+	if (x > 800)
+		x = 0;
+	else if (x < 0)
+		x = 800;
+	else if (y > 800)
+		y = 0;
+	else if (y < 0)
+		y = 800;
 }
