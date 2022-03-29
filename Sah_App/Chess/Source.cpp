@@ -1,13 +1,22 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include "Board.h"
+#include "Figure.h"
 using namespace std;
+using namespace sf;
+
+//Global Variables
+static int ROWSIZE = 8;
+static int COLLUMNSIZE = 8;
 
 int main()
-{
-	cout << "marin testiraaaaaaa a";
-	sf::RenderWindow window(sf::VideoMode(1200, 800), "Hello, SFML world!");
+{ 
+	sf::RenderWindow window(sf::VideoMode(800, 800), "Chess by Marin and Alan");
 	window.setFramerateLimit(60);
 
+	Board board(&window);
+	Figure figure(&window);
+	bool gameIsRunning = true;
 	while (window.isOpen())
 	{
 		sf::Event event;
@@ -16,7 +25,19 @@ int main()
 			if (event.type == sf::Event::Closed)
 				window.close();
 		}
+		
+		if (Mouse::isButtonPressed(Mouse::Left))
+		{
+			//cout << Mouse::getPosition(window).x << endl;
+		}
+		
+		board.drawBoard(ROWSIZE, COLLUMNSIZE);
+		
+		figure.setPosition(gameIsRunning);
+		figure.drawFigures();
+		
 		window.display();
+		gameIsRunning = false;
 	}
 	return 0;
 }
